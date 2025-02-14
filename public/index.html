@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Animation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>SVG Exercise</h1>
+
+<button onclick="changeSize()">Change Size</button>
+
+
+<svg height="400" width="500" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="pink"></stop>
+            <stop offset="100%" stop-color="red"></stop>
+        </linearGradient>
+    </defs>
+    <polygon id="polygon2" points="220,10 300,210 170,250 123,234" fill="url(#grad1)"></polygon>
+</svg>
+
+<object type="image/svg+xml" data="Basic Animations.svg" width="200" height="200"></object>
+
+<svg height="220" width="500" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="100,10 150,190 50,190" style="fill:blueviolet;stroke:red;stroke-width:3"></polygon>
+</svg>
+
+
+<script>
+    function changeSize() {
+        const polygon = document.getElementById("polygon2");
+        const currentTransform = polygon.getAttribute("transform");
+
+        const newTransform = currentTransform === "scale(2)" ? "scale(1)" : "scale(2)";
+        polygon.setAttribute("transform", newTransform);
+    }
+
+</script>
+</body>
+</html>
